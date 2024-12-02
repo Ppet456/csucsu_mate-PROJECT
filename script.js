@@ -1,10 +1,10 @@
 let gol1 = 0;
 let gol2 = 0; 
-let gol1d = document.getElementById("gol1")
-let gol2d = document.getElementById("gol2") 
-
-
-
+let gol1d = document.getElementById("gol1");
+let gol2d = document.getElementById("gol2");
+let time = 0;
+let idout = document.getElementById("ido_output");
+let ido_gomb = document.getElementById("start");
 function gol(x,gol)
 {
     switch(gol)
@@ -31,3 +31,38 @@ function gol(x,gol)
         document.getElementById("gol2n").disabled = true;
         }   
 }
+
+function clock()
+{
+    time++;
+    idout.innerHTML = `${Math.floor(time / 60)}:${time % 60}`;
+}
+
+let ora;
+let istimegoing = false;
+
+function start()
+{
+    if(istimegoing)
+        {
+
+            clearInterval(ora);
+            istimegoing = false;
+            ido_gomb.innerHTML = "start";
+        }
+        else
+        {
+            ora = setInterval(clock,1000)
+            istimegoing = true;
+            ido_gomb.innerHTML = "stop";
+        }
+}
+
+
+
+
+
+
+
+
+
