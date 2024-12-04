@@ -99,7 +99,7 @@ function start()
         }
         else
         {
-            ora = setInterval(clock,1)//idö
+            ora = setInterval(clock,1000S)//idö
             istimegoing = true;
             ido_gomb.innerHTML = "stop";
         }
