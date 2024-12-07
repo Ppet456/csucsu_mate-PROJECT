@@ -9,22 +9,55 @@
 <body>
     
     
-<h3 id="gol1">0</h3>
-<button id="gol1p" onclick="gol(1,'gol1')" type="button">+</button>
-<button id="gol1n" onclick="gol(-1,'gol1')" disabled type="button">-</button>
-<br>
-<h3 id="gol2">0</h3>
-<button id="gol2p" onclick="gol(1,'gol2')" type="button">+</button>
-<button id="gol2n"  onclick="gol(-1,'gol2')" disabled type="button">-</button>
+    <div class="team-container">
+        <div class="team">
+            <h3>Csapat 1</h3>
+            <input type="text" id="team1_name" placeholder="Csapat 1 neve" />
+            <button onclick="setTeamName('team1')">Név beállítása</button>
+        </div>
+        <img src="/vs.png" alt="VS" class="vs-image"> 
+        <div class="team">
+            <h3>Csapat 2</h3>
+            <input type="text" id="team2_name" placeholder="Csapat 2 neve" />
+            <button onclick="setTeamName('team2')">Név beállítása</button>
+        </div>
+    </div>
 
-<button id="start" onclick="start()" type="button">indit</button>
-<h2 id="ido_output"></h2>
 
-<input id="felido_input" type="number" min="0" max="1200"> <span>Minute </span> <input id="felido_input_second" type="number" min="0" max="1200"> <span>Second</span>  
-<button onclick="felido_submit()" type="button">felidö</button>
-<h2 id="felido_output"></h2>
+    <div class="scoreboard">
+        <div>
+            <h3 id="team1_display">Csapat 1</h3>
+            <button onclick="gol(1, 'gol1')">Gól+</button>
+            <p id="gol1">0</p>
+        </div>
+        <div>
+            <h3 id="team2_display">Csapat 2</h3>
+            <button onclick="gol(1, 'gol2')">Gól+</button>
+            <p id="gol2">0</p>
+        </div>
+    </div>
+
+    <div class="foul-buttons">
+        <button onclick="yellowCard('gol1')">Sárga lap Csapat 1-nek</button>
+        <button onclick="redCard('gol1')">Piros lap Csapat 1-nek</button>
+        <button onclick="yellowCard('gol2')">Sárga lap Csapat 2-nek</button>
+        <button onclick="redCard('gol2')">Piros lap Csapat 2-nek</button>
+    </div>
 
 
+    <div class="control-buttons">
+        <button id="start" onclick="start()">Start</button>
+        <input type="number" id="extra_time" placeholder="Hosszabbítás percek" />
+        <button onclick="setExtraTime()">Hosszabbítás beállítása</button>
+    </div>
+
+    <div class="timer">
+        <span>Idő:</span><span id="ido_output">0:00</span>
+    </div>
+
+    <div class="message" id="message"></div>
+    <div class="winner-message" id="winner-message"></div>
+</div>
     
 
     <script src="script.js"></script>
