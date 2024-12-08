@@ -17,9 +17,6 @@ function felido_submit()
 
 
 
-
-
-
 let felclock
 function gol(x,gol)
 {
@@ -69,10 +66,6 @@ function clock()
 
 
 
-
-
-
-
 function felido_clock()
 {
     felido--;
@@ -82,7 +75,6 @@ function felido_clock()
             win()
         }
 }
-
 
 
 let ora;

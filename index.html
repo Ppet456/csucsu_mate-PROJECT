@@ -30,12 +30,14 @@
     <div class="scoreboard">
         <div>
             <h3 id="team1_display">Csapat 1</h3>
-            <button onclick="gol(1, 'gol1')">Gól+</button>
+            <button id="gol1p" onclick="gol(1,'gol1')" type="button">gol+</button>
+            <button id="gol1n"  onclick="gol(-1,'gol1')" disabled type="button">gol-</button>
             <p id="gol1">0</p>
         </div>
         <div>
             <h3 id="team2_display">Csapat 2</h3>
-            <button onclick="gol(1, 'gol2')">Gól+</button>
+            <button id="gol2p" onclick="gol(1,'gol2')" type="button">gol+</button>
+            <button id="gol2n"  onclick="gol(-1,'gol2')" disabled type="button">gol-</button>
             <p id="gol2">0</p>
         </div>
     </div>
