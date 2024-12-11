@@ -8,10 +8,21 @@ let ido_gomb = document.getElementById("start");
 let felido_output = document.getElementById("felido_output")
 let felido
 
+let team1 = "";
+let team2 = "";
 
 function felido_submit()
 {
-    felido = parseInt((document.getElementById("felido_input").value)) * 60 + parseInt(document.getElementById("felido_input_second").value);
+    felido = parseInt((document.getElementById("felido_input").value)) * 60;//ez a masodperc beades  ha kell:+ parseInt(document.getElementById("felido_input_second").value
+}
+
+function setTeamName(x)
+{
+    switch(x)
+    {
+        case "team1":team1 = document.getElementById("team1_name").value;document.getElementById("team1_display").innerHTML = team1; break;
+        case "team2":team2 = document.getElementById("team2_name").value;document.getElementById("team2_display").innerHTML = team2; break;
+    }
 }
 
 
@@ -28,8 +39,7 @@ function gol(x,gol)
         case "gol1":gol1 += parseInt(x); gol1d.innerHTML = gol1; break;
         case "gol2":gol2 += parseInt(x); gol2d.innerHTML = gol2; break;
     }
-    console.log("gol1   " + gol1)
-    console.log("gol2   " + gol2)
+
     if(gol1 > 0)
         {
             document.getElementById("gol1n").disabled = false;
@@ -79,6 +89,7 @@ function felido_clock()
     felido_output.innerHTML = `${Math.floor(felido / 60)}:${felido % 60}`;
     if(felido == 0)
         {
+            clearInterval(felclock)
             win()
         }
 }
@@ -99,7 +110,7 @@ function start()
         }
         else
         {
-            ora = setInterval(clock,1000)//idö
+            ora = setInterval(clock,1)//idö
             istimegoing = true;
             ido_gomb.innerHTML = "stop";
         }
@@ -108,5 +119,5 @@ function start()
 
 function win()
 {
-    log.console("win has been runed");
+    console.log("win has ben runed");
 }

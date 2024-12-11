@@ -20,7 +20,7 @@
             <input type="text" id="team1_name" placeholder="Csapat 1 neve" />
             <button onclick="setTeamName('team1')">Név beállítása</button>
         </div>
-        <img src="/vs.png" alt="VS" class="vs-image"> 
+        <img src="vs.png" alt="VS" class="vs-image"> 
         <div class="team">
             <h3>Csapat 2</h3>
             <input type="text" id="team2_name" placeholder="Csapat 2 neve" />
@@ -54,12 +54,13 @@
 
     <div class="control-buttons">
         <button id="start" onclick="start()">Start</button>
-        <input type="number" id="extra_time" placeholder="Hosszabbítás percek" />
-        <button onclick="setExtraTime()">Hosszabbítás beállítása</button>
+        <input type="number" id="felido_input" placeholder="Hosszabbítás percek" />
+        <button onclick="felido_submit()">Hosszabbítás beállítása</button>
     </div>
 
     <div class="timer">
-        <span>Idő:</span><span id="ido_output">0:00</span>
+        <span>Idő:</span><span id="ido_output">0:00</span> <br>
+        <span>FélIdő:</span><span id="felido_output">0:00</span>
     </div>
 
     <div class="message" id="message"></div>
