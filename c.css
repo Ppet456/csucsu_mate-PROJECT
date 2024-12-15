@@ -156,7 +156,7 @@ p {
 .winner-message {
     font-size: 28px;
     font-weight: bold;
-    color: #32cd32;
+    color: gold;
 }
 
 #ido_output, #felido_output {

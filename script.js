@@ -63,7 +63,6 @@ function felido_submit()
     feldihosz = parseInt(document.getElementById("felido_input").value) * 60
 }
 
-
 function clock()
 {
     time++;
@@ -73,7 +72,7 @@ function clock()
             clearInterval(ora)
             if(extra_input.value != 0)
                 {
-                    felclock = setInterval(extra_clock,1000)//idö
+                    extraclock = setInterval(extra_clock,1000)//idö
                 }
             else
             {
@@ -89,7 +88,7 @@ function clock()
 
 
 
-let felclock
+let extraclock
 
 function extra_clock()
 {
@@ -97,7 +96,7 @@ function extra_clock()
     extra_output.innerHTML = `${Math.floor(extra / 60)}:${extra % 60}`;
     if(extra == 0)
         {
-            clearInterval(felclock)
+            clearInterval(extraclock)
             win()
         }
 }
@@ -111,7 +110,6 @@ function start()
 {
     if(istimegoing)
         {
-
             clearInterval(ora);
             istimegoing = false;
             ido_gomb.innerHTML = "start";
