@@ -42,26 +42,37 @@
     </div>
     
     <div class="foul-buttons">
-        <button onclick="yellowCard('gol1')">Sárga lap Csapat 1-nek</button>
-        <button onclick="redCard('gol1')">Piros lap Csapat 1-nek</button>
-        <button onclick="yellowCard('gol2')">Sárga lap Csapat 2-nek</button>
-        <button onclick="redCard('gol2')">Piros lap Csapat 2-nek</button>
+        <button onclick="inp('team1_foul')">Piros lap Csapat 1-nek</button>
+        <input type="text" id="txt" placeholder="Ember neve">
+        <ol id="team1_foul">
+
+        </ol>
+
+        <button onclick="inp('team2_foul')">Piros lap Csapat 2-nek</button>
+        <input type="text" id="txt" placeholder="Ember neve">
+        <ol id="team2_foul">
+
+        </ol>
     </div>
     
     <div class="control-buttons">
-        <button id="start" onclick="start()">Start</button>
-        <input type="number" id="felido_input" placeholder="Hosszabbítás percek" />
-        <button onclick="felido_submit()">Hosszabbítás beállítása</button>
+        <button id="start" onclick="start()">Start</button disabled>
+            <input type="number" id="felido_input" placeholder="felidöi percek" />
+            <button onclick="felido_submit()">felido bealitasa beállítása</button>
+
+        <input type="number" id="extra_input" placeholder="Hosszabbítás percek" />
+        <button onclick="extra_submit()">Hosszabbítás beállítása</button>
     </div>
     
     <div class="timer">
         <span>Idő:</span><span id="ido_output">0:00</span> <br>
-        <span>FélIdő:</span><span id="felido_output">0:00</span>
+        <span>ExtraIdő:</span><span id="extra_output">0:00</span>
     </div>
     
     <div class="message" id="message"></div>
     <div class="winner-message" id="winner-message"></div>
     
+
 
     <script src="script.js"></script>
 </body>

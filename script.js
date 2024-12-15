@@ -5,15 +5,14 @@ let gol2d = document.getElementById("gol2");
 let time = 0;
 let idout = document.getElementById("ido_output");
 let ido_gomb = document.getElementById("start");
-let felido_output = document.getElementById("felido_output")
-let felido
+let extra_output = document.getElementById("extra_output")
+let extra
+let team1 = "csapat1";
+let team2 = "csapat2";
 
-let team1 = "";
-let team2 = "";
-
-function felido_submit()
+function extra_submit()
 {
-    felido = parseInt((document.getElementById("felido_input").value)) * 60;//ez a masodperc beades  ha kell:+ parseInt(document.getElementById("felido_input_second").value
+    extra = parseInt((document.getElementById("extra_input").value)) * 60;
 }
 
 function setTeamName(x)
@@ -31,7 +30,7 @@ function setTeamName(x)
 
 
 
-let felclock
+
 function gol(x,gol)
 {
     switch(gol)
@@ -58,19 +57,27 @@ function gol(x,gol)
         }   
 }
 
+let feldihosz
+function felido_submit()
+{
+    feldihosz = parseInt(document.getElementById("felido_input").value) * 60
+}
+
+
 function clock()
 {
     time++;
     idout.innerHTML = `${Math.floor(time / 60)}:${time % 60}`;
-    if(time >= 1200)
+    if(time >= feldihosz)
         {
             clearInterval(ora)
-            if(felido_input.value != 0)
+            if(extra_input.value != 0)
                 {
-                    felclock = setInterval(felido_clock,1000)//idö
+                    felclock = setInterval(extra_clock,1000)//idö
                 }
             else
             {
+
                 win()
             }
 
@@ -82,12 +89,13 @@ function clock()
 
 
 
+let felclock
 
-function felido_clock()
+function extra_clock()
 {
-    felido--;
-    felido_output.innerHTML = `${Math.floor(felido / 60)}:${felido % 60}`;
-    if(felido == 0)
+    extra--;
+    extra_output.innerHTML = `${Math.floor(extra / 60)}:${extra % 60}`;
+    if(extra == 0)
         {
             clearInterval(felclock)
             win()
@@ -115,9 +123,53 @@ function start()
             ido_gomb.innerHTML = "stop";
         }
 }
-
+let winner = document.getElementById("winner-message")
 
 function win()
 {
-    console.log("win has ben runed");
+    if(gol1 > gol2)
+        {
+            winner.innerHTML = "A Mérközés nyertese: " + team1
+        }
+    else if(gol1 < gol2)
+        {
+            winner.innerHTML = "A Mérközés nyertese: " + team2
+        }
+        else
+        {
+            winner.innerHTML = "A Mérközés döntetlen"
+        }
+}
+
+//ember kidobás
+let idosszal = setInterval(()=>
+    {
+        for(let i  = 0; i < l.length; i++)
+            {
+                l[i].time--;
+                if(l[i].time == 0)
+                    {
+                        l.splice(i,1);
+                    }
+                frissit()
+            }
+    } ,1000)
+
+let l = []
+function inp(x)
+{
+    let name = document.getElementById("txt").value;
+    let time = 120;
+    let team = x;
+    l.push({task: name ,time: time,team: team})
+    frissit();
+}
+
+function frissit()
+{
+    document.getElementById("team1_foul").innerHTML = ""
+    document.getElementById("team2_foul").innerHTML = ""
+    l.forEach(item => {
+        document.getElementById(item.team).innerHTML += `<li>${item.task} -- ${item.time}</li>`
+    });
 }
